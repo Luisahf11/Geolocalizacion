@@ -1,6 +1,7 @@
 //Geolocalizacion
 function inicio(){
-var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+	document.addEventListener("deviceready", function(){	
+var myLatlng = new google.maps.LatLng(coordenadas () ['latitude'], cordenadas()['longitude']);
   var mapOptions = {
     zoom: 9,
     center: myLatlng,
@@ -12,6 +13,27 @@ var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
       position: myLatlng,
       map: map,
       title:"Aqui Ando de tour :)!"
+	  
   });
-  
+	},false);
+}
+function coordenadas(){
+	var arr = [];
+	
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	
+	function onSuccess(position) {
+   arr['latitude']=position.coords.latitude;
+   arr['longitude']=position.coords.longitude;
+   
+};
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+
 }
