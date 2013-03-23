@@ -1,6 +1,7 @@
 //Geolocalizacion
 function inicio(){
-	document.addEventListener("deviceready", function(){	
+	document.addEventListener("deviceready", function(){
+		var coords = coordenadas ();	
 var myLatlng = new google.maps.LatLng(coordenadas () ['latitude'], cordenadas()['longitude']);
   var mapOptions = {
     zoom: 9,
